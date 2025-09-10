@@ -1,2 +1,36 @@
 # gettingstarted-listview-.net-maui
 Create ListView in .Net Maui
+
+## Sample
+
+```xaml
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListViewMaui.MainPage"
+             xmlns:local="clr-namespace:ListViewMaui"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView" >
+
+    <ContentPage.BindingContext>
+        <local:BookInfoRepository/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <syncfusion:SfListView x:Name="listView" ItemSize="100" ItemsSource="{Binding BookInfo}">
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.4*"/>
+                            <RowDefinition Height="0.6*"/>
+                        </Grid.RowDefinitions>
+                        <Label x:Name="label"  TextColor="Black" Text="{Binding BookName}" Grid.Row="0" FontSize="17" FontAttributes="Bold"/>
+                        <Label x:Name="description" TextColor="Black" FontSize="15" Text="{Binding BookDescription}" Grid.Row="1" />
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+    </ContentPage.Content>
+
+</ContentPage>
+```
